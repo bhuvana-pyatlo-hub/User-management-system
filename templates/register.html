@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}Register User - User Management System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card custom-card shadow border-0">
+            <div class="card-header bg-primary text-white text-center py-4">
+                <h2 class="mb-0">
+                    <i class="fas fa-user-plus me-2"></i>User Registration
+                </h2>
+                <p class="mb-0 opacity-75 mt-2">Join our system today</p>
+            </div>
+            
+            <div class="card-body p-4">
+                <form id="registrationForm" method="POST" action="{{ url_for('register') }}">
+                    <!-- Name Field -->
+                    <div class="mb-4">
+                        <label for="name" class="form-label fw-semibold">
+                            <i class="fas fa-user me-1"></i>Full Name <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" 
+                               class="form-control form-control-lg" 
+                               id="name" 
+                               name="name" 
+                               placeholder="Enter your full name"
+                               required>
+                        <div class="form-text">Please enter your complete name as you'd like it to appear.</div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="mb-4">
+                        <label for="email" class="form-label fw-semibold">
+                            <i class="fas fa-envelope me-1"></i>Email Address <span class="text-danger">*</span>
+                        </label>
+                        <input type="email" 
+                               class="form-control form-control-lg" 
+                               id="email" 
+                               name="email" 
+                               placeholder="Enter your email address"
+                               required>
+                        <div class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="mb-4">
+                        <label for="password" class="form-label fw-semibold">
+                            <i class="fas fa-lock me-1"></i>Password <span class="text-danger">*</span>
+                        </label>
+                        <input type="password" 
+                               class="form-control form-control-lg" 
+                               id="password" 
+                               name="password" 
+                               placeholder="Create a strong password"
+                               required>
+                        <div class="form-text">
+                            Password must be at least 6 characters long.
+                            <div class="password-strength mt-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">Password strength:</small>
+                                    <small class="strength-text" id="strengthText">Weak</small>
+                                </div>
+                                <div class="progress" style="height: 6px;">
+                                    <div class="progress-bar" id="passwordProgress" style="width: 30%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg py-3 fw-semibold">
+                            <i class="fas fa-user-plus me-2"></i>Register User
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Additional Links -->
+                <div class="text-center mt-4">
+                    <p class="text-muted mb-0">
+                        Already have users? 
+                        <a href="{{ url_for('users_list') }}" class="text-decoration-none fw-semibold">View all users</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card custom-card border-0">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary mb-3">
+                            <i class="fas fa-shield-alt me-2"></i>Why Register With Us?
+                        </h5>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="text-muted">Secure Data</span>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="text-muted">Easy Management</span>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="text-muted">Instant Access</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
